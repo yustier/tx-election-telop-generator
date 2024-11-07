@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テレ東選挙テロップジェネレーター</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <h1>テレ東選挙テロップジェネレーター</h1>
+
+    <fieldset>
+        <legend>設定</legend>
+        <div class="photo">
+            <h2>顔写真</h2>
+            <input type="file" accept="image/*" class="photo-input">
+        </div>
+        <div class="template">
+            <h2>テンプレート</h2>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hor50-2024" id="hor50-2024" checked>
+                <label for="hor50-2024">2024年第50回衆院選</label>
+            </span>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hoc26-2022" id="hoc26-2022">
+                <label for="hoc26-2022">2022年第26回参院選</label>
+            </span>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hor49-2021" id="hor49-2021">
+                <label for="hor49-2021">2021年第49回衆院選</label>
+            </span>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hoc25-2019" id="hoc25-2019">
+                <label for="hoc25-2019">2019年第25回参院選</label>
+            </span>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hor48-2017" id="hor48-2017">
+                <label for="hor48-2017">2017年第48回衆院選</label>
+            </span>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hoc24-2016" id="hoc24-2016">
+                <label for="hoc24-2016">2016年第24回参院選</label>
+            </span>
+            <span class="option-wrap">
+                <input type="radio" name="template" value="hor47-2014" id="hor47-2014">
+                <label for="hor47-2014">2014年第47回衆院選</label>
+            </span>
+        </div>
+        <div class="custom">
+            <h2>カスタム</h2>
+            <div class="party-color">
+                <span class="option-wrap">
+                    <input type="checkbox" checked disabled>
+                    <span class="input-wrap">
+                        <label for="party-color-picker">政党色:</label>
+                        <input type="color" name="party-color" id="party-color-picker" value="#123456">
+                        <input class="hexcolor" type="text" name="party-color" id="party-color-text" value="#123456">
+                    </span>
+                    <select id="party-color-preset" name="party-color-preset">
+                        <option value="" selected>プリセットから選ぶ</option>
+                        <option value="#ff0000">自由民主党</option>
+                        <option value="#0000ff">立憲民主党</option>
+                        <option value="#ffcc00">公明党</option>
+                        <option value="#00ccff">日本維新の会</option>
+                        <option value="#6600cc">国民民主党</option>
+                        <option value="#ff6600">日本共産党</option>
+                        <option value="#00cc00">社会民主党</option>
+                        <option value="#ffff00">みんなで作る党</option>
+                        <option value="#ff00ff">れいわ新選組</option>
+                        <option value="#cccccc">無所属</option>
+                    </select>
+                </span>
+            </div>
+            <div class="party-icon">
+                <span class="option-wrap">
+                    <input type="checkbox" name="party-icon" id="party-icon">
+                    <label for="party-icon">政党アイコンを表示</label>
+                </span>
+            </div>
+            <div class="projection-icon">
+                <span class="option-wrap">
+                    <input type="checkbox" name="projection-icon" id="projection-icon">
+                    <label for="projection-icon">当選確実を表示</label>
+                </span>
+                <span class="input-wrap">
+                    <label for="projection-icon-text">文字:</label>
+                    <input class="ideograph" type="text" name="projection-icon-text" id="projection-icon-text" value="当">
+                </span>
+                <span class="input-wrap">
+                    <label for="projection-icon-color-picker">色:</label>
+                    <input type="color" name="projection-icon-color" id="projection-icon-color-picker" value="#654321">
+                    <input class="hexcolor" type="text" name="projection-icon-color" id="projection-icon-color-text" value="#654321">
+                </span>
+                <label for="projection-icon-design">デザイン:</label>
+                <select id="projection-icon-design" name="projection-icon-design">
+                    <option value="background">背景に置く</option>
+                    <option value="right">右に置く</option>
+                </select>
+            </div>
+            <div class="show-title">
+                <span class="option-wrap">
+                    <input type="checkbox" name="show-title" id="show-title">
+                    <label for="show-title">「注目候補プロフィール」を表示</label>
+                </span>
+                位置
+                <span class="input-wrap">
+                    <label for="show-title-x">x:</label>
+                    <input class="coord" type="number" name="show-title-x" id="show-title-x" value="0">
+                    <label for="show-title-y">y:</label>
+                    <input class="coord" type="number" name="show-title-y" id="show-title-y" value="0">
+                </span>
+            </div>
+        </div>
+    </fieldset>
+
+    <div class="generated-image">
+        <canvas id="result"></canvas>
+    </div>
+
+    <div class="save">
+        <button id="save">画像を保存する</button>
+    </div>
+
+    <hr>
+    <footer>
+        ©2024 <a href="https://i6c.at">Airoku</a><br>
+        <a href="https://github.com/yustier/pairwise-comparator">Source</a>
+    </footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+
+</html>

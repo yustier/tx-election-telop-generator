@@ -1,0 +1,35 @@
+:root {
+    color-scheme: light dark;
+}
+
+legend {
+    padding-inline: 0.5em;
+}
+
+.option-wrap {
+    margin-right: 2em;
+    text-wrap: nowrap;
+}
+
+.input-wrap {
+    margin-right: 1em;
+}
+
+/* .custom>div {
+    display: flex;
+    align-items: center;
+} */
+
+input.coord {
+    width: 4em;
+    text-align: right;
+}
+
+input.hexcolor {
+    font-family: monospace;
+    width: 6em;
+}
+
+input.ideograph {
+    width: 2em;
+}
